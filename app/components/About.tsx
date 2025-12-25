@@ -1,91 +1,84 @@
 'use client';
 
-import { Target, Eye, Award, Users } from 'lucide-react';
+import { Users, Target, Globe, Award, MapPin, Shield, Clock } from 'lucide-react';
 
 export default function About() {
+  const services = [
+    { title: 'Visa Consultation', icon: MapPin },
+    { title: 'Document Processing', icon: Shield },
+    { title: 'Expert Team', icon: Users },
+    { title: '98% Approval Rate', icon: Target },
+  ];
+
   return (
-    <section id="about" className="py-20 px-4 bg-white">
+    <section id="about" className="py-16 px-4 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">About Us</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
-            Leading Consultancy Firm
+        
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-5">
+            About RiserX Consultancy
           </h2>
-          <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
-            With years of experience and a passion for excellence, we help businesses 
-            achieve their full potential through strategic consulting.
+          <div className="w-24 h-1 bg-[rgb(24,69,179)] mx-auto mb-5"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Your trusted partner in making global relocation dreams a reality
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          {/* Image Placeholder */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl">
-            <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Award size={48} className="text-white" />
+        {/* Main Content Area */}
+        <div className="grid lg:grid-cols-3 gap-8">
+          
+          {/* Left Column - Services & Stats */}
+          <div className="lg:col-span-1 grid grid-cols-1 gap-4">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-l-4 border-r-4 border-l-[rgb(24,69,179)] border-r-[rgb(24,69,179)] border border-gray-100"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-linear-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center shadow-sm">
+                      <Icon size={22} className="text-black" strokeWidth={2.5} />
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900">{service.title}</h3>
+                  </div>
                 </div>
-                <p className="text-gray-700 font-semibold">Excellence in Consulting</p>
-              </div>
-            </div>
+              );
+            })}
           </div>
 
-          {/* Content */}
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-gray-900">
-              Your Trusted Partner in Business Transformation
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              At RiserX Consultancy, we believe in creating lasting partnerships with our clients. 
-              Our team of experienced consultants brings deep industry knowledge and innovative 
-              thinking to every project.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              We specialize in helping organizations navigate complex challenges, optimize 
-              operations, and achieve sustainable growth. Our holistic approach ensures that 
-              every solution is tailored to your unique needs.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6 pt-4">
-              <div className="space-y-2">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <Target className="text-blue-600" size={24} />
-                </div>
-                <h4 className="font-semibold text-gray-900">Our Mission</h4>
-                <p className="text-sm text-gray-600">
-                  Empower businesses to reach new heights through strategic guidance.
-                </p>
+          {/* Right Column - Description */}
+          <div className="lg:col-span-2 bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-r-4 border-l-[rgb(24,69,179)] border-r-[rgb(24,69,179)] border border-gray-100">
+            <div className="mb-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-2 h-12 bg-[rgb(24,69,179)] rounded-full"></div>
+                <h3 className="text-3xl font-bold text-gray-900">
+                  Leading Immigration Consultancy Since 2014
+                </h3>
               </div>
-              <div className="space-y-2">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <Eye className="text-purple-600" size={24} />
-                </div>
-                <h4 className="font-semibold text-gray-900">Our Vision</h4>
-                <p className="text-sm text-gray-600">
-                  Be the leading force in global business transformation.
-                </p>
-              </div>
+              <p className="text-gray-600 leading-relaxed mb-5 text-lg">
+                RiserX Consultancy is a premier immigration and visa consultancy firm dedicated to helping 
+                individuals and families achieve their dreams of living, working, or studying abroad. With 
+                over a decade of experience, we have successfully guided thousands of clients through complex 
+                immigration processes.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                Our team of certified immigration consultants brings extensive knowledge of visa regulations, 
+                documentation requirements, and application procedures across multiple countries. We pride 
+                ourselves on our personalized approach, ensuring each client receives tailored guidance based 
+                on their unique circumstances and goals.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                From initial consultation to post-arrival support, we are committed to making your relocation 
+                journey smooth, stress-free, and successful. Trust RiserX to turn your international aspirations 
+                into reality.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Values */}
-        <div className="grid md:grid-cols-4 gap-8">
-          {[
-            { icon: Users, title: 'Client-Centric', desc: 'Your success is our priority' },
-            { icon: Award, title: 'Excellence', desc: 'Delivering exceptional results' },
-            { icon: Target, title: 'Results-Driven', desc: 'Focused on measurable outcomes' },
-            { icon: Eye, title: 'Integrity', desc: 'Honest and transparent approach' },
-          ].map((value, index) => (
-            <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 hover:shadow-lg transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <value.icon size={32} className="text-white" />
-              </div>
-              <h4 className="font-bold text-gray-900 mb-2">{value.title}</h4>
-              <p className="text-sm text-gray-600">{value.desc}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

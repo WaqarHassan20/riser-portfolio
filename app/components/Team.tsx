@@ -2,6 +2,11 @@
 
 import { Linkedin, Twitter, Mail } from 'lucide-react';
 
+// Icon wrapper for consistent black styling
+const IconWrapper = ({ children, ...props }: any) => {
+  return <span style={{ color: '#000000' }} {...props}>{children}</span>;
+};
+
 export default function Team() {
   const team = [
     {
@@ -9,51 +14,44 @@ export default function Team() {
       role: 'CEO & Founder',
       image: 'MA',
       bio: 'Strategic visionary with 20+ years in business consulting',
-      color: 'from-blue-500 to-blue-600',
     },
     {
       name: 'Sarah Williams',
       role: 'Chief Strategy Officer',
       image: 'SW',
       bio: 'Expert in digital transformation and innovation',
-      color: 'from-purple-500 to-purple-600',
     },
     {
       name: 'David Chen',
       role: 'Head of Operations',
       image: 'DC',
       bio: 'Operational excellence and process optimization specialist',
-      color: 'from-pink-500 to-pink-600',
     },
     {
       name: 'Emily Rodriguez',
       role: 'Lead Financial Advisor',
       image: 'ER',
       bio: 'Financial strategy and risk management expert',
-      color: 'from-indigo-500 to-indigo-600',
     },
     {
       name: 'James Thompson',
       role: 'HR Consulting Director',
       image: 'JT',
       bio: 'Organizational development and talent management',
-      color: 'from-cyan-500 to-cyan-600',
     },
     {
       name: 'Lisa Park',
       role: 'Marketing Strategist',
       image: 'LP',
       bio: 'Growth marketing and brand positioning specialist',
-      color: 'from-teal-500 to-teal-600',
     },
   ];
 
   return (
-    <section id="team" className="py-20 px-4 bg-gradient-to-br from-gray-50 to-purple-50">
+    <section id="team" className="py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Our Team</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-4">
             Meet Our Expert Consultants
           </h2>
           <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -69,7 +67,7 @@ export default function Team() {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
             >
               {/* Image Placeholder */}
-              <div className={`h-64 bg-gradient-to-br ${member.color} flex items-center justify-center relative overflow-hidden`}>
+              <div className="h-64 bg-[rgb(24,69,179)] flex items-center justify-center relative overflow-hidden">
                 <div className="text-white text-6xl font-bold opacity-30 absolute">
                   {member.image}
                 </div>
@@ -80,7 +78,7 @@ export default function Team() {
                 {/* Social Links - Appear on Hover */}
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all">
-                    <Linkedin size={18} className="text-blue-600" />
+                    <Linkedin size={18} className="text-[rgb(24,69,179)]" />
                   </button>
                   <button className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all">
                     <Twitter size={18} className="text-blue-400" />
@@ -94,7 +92,7 @@ export default function Team() {
               {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
+                <p className="text-[rgb(24,69,179)] font-semibold mb-3">{member.role}</p>
                 <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
               </div>
             </div>

@@ -1,8 +1,12 @@
 'use client';
 
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
   const testimonials = [
     {
       name: 'John Smith',
@@ -10,7 +14,7 @@ export default function Testimonials() {
       image: 'JS',
       rating: 5,
       text: 'RiserX Consultancy transformed our business strategy. Their insights and expertise helped us achieve 150% growth in just one year. Highly recommended!',
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-blue-500 to-[rgb(24,69,179)]',
     },
     {
       name: 'Maria Garcia',
@@ -54,12 +58,37 @@ export default function Testimonials() {
     },
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isAutoPlaying]);
+
   return (
-    <section id="testimonials" className="py-20 px-4 bg-white">
+    <section id="testimonials" className="py-20 px-4 bg-white"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-4">
             What Our Clients Say
           </h2>
           <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -67,65 +96,107 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+        {/* Carousel Container */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft size={24} className="text-black" strokeWidth={2} />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={24} className="text-black" strokeWidth={2} />
+          </button>
+
+          {/* Testimonial Cards */}
+          <div className="overflow-hidden rounded-3xl">
             <div
-              key={index}
-              className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative"
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6 opacity-10">
-                <Quote size={64} className="text-blue-600" />
-              </div>
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 px-4"
+                >
+                  <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+                    {/* Quote Icon */}
+                    <div className="absolute top-8 right-8 opacity-5">
+                      <Quote size={80} className="text-gray-900" />
+                    </div>
 
-              {/* Rating */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
+                    {/* Rating */}
+                    <div className="flex justify-center gap-1 mb-6">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} size={24} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
 
-              {/* Testimonial Text */}
-              <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
-                "{testimonial.text}"
-              </p>
+                    {/* Testimonial Text */}
+                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8 text-center relative z-10 italic">
+                      "{testimonial.text}"
+                    </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className={`w-14 h-14 bg-gradient-to-br ${testimonial.color} rounded-full flex items-center justify-center flex-shrink-0`}>
-                  <span className="text-white font-bold text-lg">{testimonial.image}</span>
+                    {/* Author */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-16 h-16 bg-[rgb(24,69,179)] rounded-full flex items-center justify-center mb-4">
+                        <span className="text-white font-bold text-xl">{testimonial.image}</span>
+                      </div>
+                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                      <p className="text-gray-600">{testimonial.role}</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Dots Navigation */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  index === currentIndex
+                    ? 'w-8 bg-[rgb(24,69,179)]'
+                    : 'w-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Stats Section */}
         <div className="mt-16 grid md:grid-cols-4 gap-8 text-center">
           <div className="p-6">
-            <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
               98%
             </h3>
             <p className="text-gray-600">Client Satisfaction</p>
           </div>
           <div className="p-6">
-            <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
               500+
             </h3>
             <p className="text-gray-600">Completed Projects</p>
           </div>
           <div className="p-6">
-            <h3 className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-indigo-600 bg-clip-text text-transparent mb-2">
+            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
               300+
             </h3>
             <p className="text-gray-600">Happy Clients</p>
           </div>
           <div className="p-6">
-            <h3 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent mb-2">
+            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
               15+
             </h3>
             <p className="text-gray-600">Years Experience</p>

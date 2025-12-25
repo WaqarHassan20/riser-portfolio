@@ -1,8 +1,11 @@
 'use client';
 
-import { Briefcase, TrendingUp, Users, BarChart, Lightbulb, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, ChevronRight, ChevronLeft } from 'lucide-react';
 
 export default function Services() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -12,90 +15,145 @@ export default function Services() {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
-  const services = [
+
+  const destinations = [
     {
-      icon: Briefcase,
-      title: 'Business Strategy',
-      description: 'Comprehensive strategic planning to align your business objectives with market opportunities.',
-      color: 'from-blue-500 to-blue-600',
+      flag: '🇬🇧',
+      country: 'United Kingdom',
+      city: 'London',
+      description: 'Discover rich history combined with modern business excellence. A global financial center with unparalleled educational and career opportunities.',
     },
     {
-      icon: TrendingUp,
-      title: 'Growth Consulting',
-      description: 'Accelerate your business growth with data-driven strategies and market insights.',
-      color: 'from-purple-500 to-purple-600',
+      flag: '🇦🇺',
+      country: 'Australia',
+      city: 'Sydney & Melbourne',
+      description: 'Embrace work-life balance in stunning landscapes. Outstanding quality of life, thriving economy, and beautiful natural environments.',
     },
     {
-      icon: Users,
-      title: 'HR Consulting',
-      description: 'Optimize your workforce with talent management and organizational development solutions.',
-      color: 'from-pink-500 to-pink-600',
+      flag: '🇨🇦',
+      country: 'Canada',
+      city: 'Toronto & Vancouver',
+      description: 'Build your future in a welcoming multicultural society. Excellent healthcare, education systems, and vast career opportunities.',
     },
     {
-      icon: BarChart,
-      title: 'Financial Advisory',
-      description: 'Expert financial planning, analysis, and risk management for sustainable success.',
-      color: 'from-indigo-500 to-indigo-600',
+      flag: '🇦🇪',
+      country: 'United Arab Emirates',
+      city: 'Dubai',
+      description: 'Experience luxury and innovation in the Middle East. Tax-free income, world-class infrastructure, and a thriving business environment.',
     },
     {
-      icon: Lightbulb,
-      title: 'Innovation Strategy',
-      description: 'Foster innovation and digital transformation to stay ahead of the competition.',
-      color: 'from-cyan-500 to-cyan-600',
+      flag: '🇺🇸',
+      country: 'United States',
+      city: 'New York & California',
+      description: 'Land of opportunity with diverse career paths. Access to cutting-edge industries, prestigious universities, and limitless growth potential.',
     },
     {
-      icon: Shield,
-      title: 'Risk Management',
-      description: 'Identify, assess, and mitigate risks to protect your business interests.',
-      color: 'from-teal-500 to-teal-600',
-    },
+      flag: '🇩🇪',
+      country: 'Germany',
+      city: 'Berlin & Munich',
+      description: 'Europe\'s economic powerhouse with strong industrial heritage. Excellent work-life balance, social benefits, and central European location.',
+    }
   ];
 
+  const cardsPerSlide = 3;
+  const totalSlides = Math.ceil(destinations.length / cardsPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const getCurrentDestinations = () => {
+    const start = currentSlide * cardsPerSlide;
+    return destinations.slice(start, start + cardsPerSlide);
+  };
+
   return (
-    <section id="services" className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="services" className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Our Services</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
-            Comprehensive Solutions for Your Business
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-4">
+            Destinations We Offer
           </h2>
           <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
-            We offer a wide range of consulting services designed to address your 
-            unique challenges and drive measurable results.
+            We specialize in helping you relocate to premier destinations worldwide. 
+            Discover countries that offer exceptional opportunities for your career and lifestyle.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
-            >
-              <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{service.description}</p>
-              <button className="mt-6 text-blue-600 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
-                Learn More
-                <span>→</span>
-              </button>
+        {/* Carousel Container */}
+        <div className="relative px-20">
+          <div className="transition-all duration-500 ease-in-out">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {getCurrentDestinations().map((destination, index) => (
+                <div
+                  key={`${currentSlide}-${index}`}
+                  className="bg-white rounded-2xl overflow-visible shadow-lg hover:shadow-2xl transition-all duration-300 group animate-fadeIn"
+                >
+                  {/* Header with Flag */}
+                  <div className="bg-[rgb(24,69,179)] p-6 text-white rounded-t-2xl">
+                    <div className="text-6xl mb-3">{destination.flag}</div>
+                    <h3 className="text-2xl font-bold mb-1">{destination.country}</h3>
+                    <p className="text-white/90 text-sm font-medium flex items-center gap-2">
+                      <MapPin size={16} />
+                      {destination.city}
+                    </p>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      {destination.description}
+                    </p>
+
+                    <button className="text-white font-medium text-[0.78rem] px-4 py-2 rounded-sm flex items-center gap-2 bg-[rgb(24,69,179)] transition-all cursor-pointer">
+                      view details
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          {totalSlides > 1 && (
+            <>
+              <button
+                onClick={prevSlide}
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-[rgb(24,69,179)] rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-x-1 group"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={24} strokeWidth={2.5} className="group-hover:animate-slideLeft" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white text-[rgb(24,69,179)] rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:translate-x-1 group"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={24} strokeWidth={2.5} className="group-hover:animate-slideRight" />
+              </button>
+            </>
+          )}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">Need a Custom Solution?</h3>
-          <p className="text-xl mb-8 opacity-90">
-            We tailor our services to meet your specific business needs.
-          </p>
-          <button 
-            onClick={scrollToContact}
-            className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            Schedule a Consultation
-          </button>
-        </div>
+        {/* Slide Indicators */}
+        {totalSlides > 1 && (
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentSlide ? 'w-8 bg-[rgb(24,69,179)]' : 'w-2 bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

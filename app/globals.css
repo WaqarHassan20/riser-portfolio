@@ -3,11 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-blue: rgb(24, 69, 179);
+  --primary-blue-dark: rgb(20, 58, 150);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-blue);
+  --color-primary-dark: var(--primary-blue-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,6 +20,41 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Blue Color Classes */
+.bg-primary {
+  background-color: rgb(24, 69, 179);
+}
+
+.bg-primary-dark {
+  background-color: rgb(20, 58, 150);
+}
+
+.text-primary {
+  color: rgb(24, 69, 179);
+}
+
+.border-primary {
+  border-color: rgb(24, 69, 179);
+}
+
+.hover\:bg-primary:hover {
+  background-color: rgb(24, 69, 179);
+}
+
+.hover\:text-primary:hover {
+  color: rgb(24, 69, 179);
+}
+
+.from-primary {
+  --tw-gradient-from: rgb(24, 69, 179) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(24 69 179 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-primary-dark {
+  --tw-gradient-to: rgb(20, 58, 150) var(--tw-gradient-to-position);
 }
 
 /* Smooth scrolling */
@@ -95,8 +134,47 @@ html {
   }
 }
 
+@keyframes slideLeft {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes slideRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.6s ease-in-out infinite;
+}
+
+.animate-slideRight {
+  animation: slideRight 0.6s ease-in-out infinite;
 }
 
 .animate-slideInLeft {
@@ -151,4 +229,17 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Force all lucide icons to be solid black */
+svg[class*="lucide"] {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+/* Exception for white icons in specific contexts */
+.text-white svg[class*="lucide"],
+[class*="text-white"] svg[class*="lucide"] {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }

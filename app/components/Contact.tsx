@@ -71,77 +71,31 @@ export default function Contact() {
     }
   };
   return (
-    <section id="contact" className="py-20 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <section id="contact" className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wide">Contact Us</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
-            Let's Start Your Success Story
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-[rgb(24,69,179)]">
+            Get In Touch
           </h2>
-          <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
-            Ready to transform your business? Get in touch with our team today.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                We're here to help you achieve your business goals. Reach out to us 
-                through any of the channels below, and we'll get back to you promptly.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Email Us</h4>
-                  <p className="text-gray-600">info@riserxconsultancy.com</p>
-                  <p className="text-gray-600">support@riserxconsultancy.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Call Us</h4>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                  <p className="text-gray-600">+1 (555) 987-6543</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Visit Us</h4>
-                  <p className="text-gray-600">123 Business Avenue</p>
-                  <p className="text-gray-600">New York, NY 10001, USA</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-video bg-gradient-to-br from-blue-200 to-purple-200 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin size={48} className="text-blue-600 mx-auto mb-2" />
-                  <p className="text-gray-700 font-semibold">Interactive Map</p>
-                </div>
-              </div>
-            </div>
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          {/* Interactive Map */}
+          <div className="rounded-2xl overflow-hidden shadow-lg h-[600px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9476659387873!2d-73.98823492346458!3d40.74844097138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1735234567890!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Office Location Map"
+            ></iframe>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8 relative overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-2xl p-6 relative overflow-hidden h-[600px] flex flex-col">
             {/* Success Message Overlay */}
             {submitted && (
               <div className="absolute inset-0 bg-white z-10 flex items-center justify-center animate-fadeIn">
@@ -153,11 +107,11 @@ export default function Contact() {
               </div>
             )}
             
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid md:grid-cols-2 gap-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Send us a Message</h3>
+            <form className="space-y-4 flex-1 overflow-y-auto pr-2" onSubmit={handleSubmit}>
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-1">
                     First Name *
                   </label>
                   <input
@@ -166,15 +120,15 @@ export default function Contact() {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${
+                    className={`w-full px-3 py-2 rounded-lg border ${
                       errors.firstName ? 'border-red-500' : 'border-gray-300'
-                    } focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all`}
+                    } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
                     placeholder="John"
                   />
                   {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700 mb-1">
                     Last Name *
                   </label>
                   <input
@@ -183,9 +137,9 @@ export default function Contact() {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${
+                    className={`w-full px-3 py-2 rounded-lg border ${
                       errors.lastName ? 'border-red-500' : 'border-gray-300'
-                    } focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all`}
+                    } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
                     placeholder="Doe"
                   />
                   {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
@@ -193,7 +147,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
                   Email Address *
                 </label>
                 <input
@@ -202,16 +156,16 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${
+                  className={`w-full px-3 py-2 rounded-lg border ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all`}
+                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
                   placeholder="john@example.com"
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-1">
                   Phone Number *
                 </label>
                 <input
@@ -220,16 +174,16 @@ export default function Contact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${
+                  className={`w-full px-3 py-2 rounded-lg border ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all`}
+                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
                   placeholder="+1 (555) 123-4567"
                 />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-1">
                   Service Interested In *
                 </label>
                 <select
@@ -237,23 +191,23 @@ export default function Contact() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${
+                  className={`w-full px-3 py-2 rounded-lg border ${
                     errors.service ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all`}
+                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
                 >
                   <option value="">Select a service</option>
-                  <option value="business-strategy">Business Strategy</option>
-                  <option value="growth-consulting">Growth Consulting</option>
-                  <option value="hr-consulting">HR Consulting</option>
-                  <option value="financial-advisory">Financial Advisory</option>
-                  <option value="innovation-strategy">Innovation Strategy</option>
-                  <option value="risk-management">Risk Management</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="australia">Australia</option>
+                  <option value="canada">Canada</option>
+                  <option value="uae">UAE</option>
+                  <option value="usa">USA</option>
+                  <option value="germany">Germany</option>
                 </select>
                 {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service}</p>}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1">
                   Message *
                 </label>
                 <textarea
@@ -261,10 +215,10 @@ export default function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={4}
-                  className={`w-full px-4 py-3 rounded-lg border ${
+                  rows={3}
+                  className={`w-full px-3 py-2 rounded-lg border ${
                     errors.message ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all resize-none`}
+                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all resize-none`}
                   placeholder="Tell us about your project..."
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -273,7 +227,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform ${
+                className={`w-full bg-gradient-to-r from-[rgb(24,69,179)] to-[rgb(20,58,150)] text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform ${
                   isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105'
                 }`}
               >
