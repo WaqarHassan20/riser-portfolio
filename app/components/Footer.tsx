@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-[rgb(24,69,179)] to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#084B73] to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">RX</span>
               </div>
               <span className="text-xl font-bold text-white">RiserX</span>
@@ -37,13 +37,13 @@ export default function Footer() {
               Empowering businesses to achieve excellence through innovative consulting solutions and strategic guidance.
             </p>
             <div className="flex gap-3">
-              <button className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[rgb(24,69,179)] transition-all duration-300 transform hover:scale-110">
+              <button className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#084B73] transition-all duration-300 transform hover:scale-110">
                 <Facebook size={20} />
               </button>
               <button className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-all duration-300 transform hover:scale-110">
                 <Twitter size={20} />
               </button>
-              <button className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[rgb(24,69,179)] transition-all duration-300 transform hover:scale-110">
+              <button className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#084B73] transition-all duration-300 transform hover:scale-110">
                 <Linkedin size={20} />
               </button>
               <button className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110">

@@ -75,7 +75,7 @@ export default function Services() {
     <section id="services" className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-4">
             Destinations We Offer
           </h2>
           <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -94,7 +94,7 @@ export default function Services() {
                   className="bg-white rounded-2xl overflow-visible shadow-lg hover:shadow-2xl transition-all duration-300 group animate-fadeIn"
                 >
                   {/* Header with Flag */}
-                  <div className="bg-[rgb(24,69,179)] p-6 text-white rounded-t-2xl">
+                  <div className="bg-[#0E79BC] p-6 text-white rounded-t-2xl">
                     <div className="text-6xl mb-3">{destination.flag}</div>
                     <h3 className="text-2xl font-bold mb-1">{destination.country}</h3>
                     <p className="text-white/90 text-sm font-medium flex items-center gap-2">
@@ -109,7 +109,7 @@ export default function Services() {
                       {destination.description}
                     </p>
 
-                    <button className="text-white font-medium text-[0.78rem] px-4 py-2 rounded-sm flex items-center gap-2 bg-[rgb(24,69,179)] transition-all cursor-pointer">
+                    <button className="text-white font-medium text-[0.78rem] px-4 py-2 rounded-sm flex items-center gap-2 bg-[#0E79BC] transition-all cursor-pointer">
                       view details
                     </button>
                   </div>
@@ -123,14 +123,14 @@ export default function Services() {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-[rgb(24,69,179)] rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-x-1 group"
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white text-[#084B73] rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-x-1 group"
                 aria-label="Previous slide"
               >
                 <ChevronLeft size={24} strokeWidth={2.5} className="group-hover:animate-slideLeft" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white text-[rgb(24,69,179)] rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:translate-x-1 group"
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white text-[#084B73] rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:translate-x-1 group"
                 aria-label="Next slide"
               >
                 <ChevronRight size={24} strokeWidth={2.5} className="group-hover:animate-slideRight" />
@@ -147,7 +147,7 @@ export default function Services() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`h-2 rounded-full transition-all ${
-                  index === currentSlide ? 'w-8 bg-[rgb(24,69,179)]' : 'w-2 bg-gray-300'
+                  index === currentSlide ? 'w-8 bg-[#084B73]' : 'w-2 bg-gray-300'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

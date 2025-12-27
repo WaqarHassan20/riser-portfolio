@@ -16,10 +16,10 @@ export default function About() {
         
         {/* Header */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-5">
             About RiserX Consultancy
           </h2>
-          <div className="w-24 h-1 bg-[rgb(24,69,179)] mx-auto mb-5"></div>
+          <div className="w-24 h-1 bg-[#084B73] mx-auto mb-5"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Your trusted partner in making global relocation dreams a reality
           </p>
@@ -36,13 +36,13 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-l-4 border-r-4 border-l-[rgb(24,69,179)] border-r-[rgb(24,69,179)] border border-gray-100"
+                  className="bg-white rounded-xl flex items-center align-center p-5 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-l-4 border-r-4 border-l-[#084B73] border-r-[#084B73] border border-gray-100"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-linear-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center shadow-sm">
                       <Icon size={22} className="text-black" strokeWidth={2.5} />
                     </div>
-                    <h3 className="text-base font-bold text-gray-900">{service.title}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
                   </div>
                 </div>
               );
@@ -50,10 +50,10 @@ export default function About() {
           </div>
 
           {/* Right Column - Description */}
-          <div className="lg:col-span-2 bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-r-4 border-l-[rgb(24,69,179)] border-r-[rgb(24,69,179)] border border-gray-100">
+          <div className="lg:col-span-2 bg-white rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-r-4 border-l-[#084B73] border-r-[#084B73] border border-gray-100">
             <div className="mb-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-2 h-12 bg-[rgb(24,69,179)] rounded-full"></div>
+                <div className="w-2 h-12 bg-[#084B73] rounded-full"></div>
                 <h3 className="text-3xl font-bold text-gray-900">
                   Leading Immigration Consultancy Since 2014
                 </h3>

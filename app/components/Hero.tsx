@@ -26,7 +26,7 @@ export default function Hero() {
       id="home" 
       className="pt-32 pb-24 px-4"
       style={{
-        background: 'linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(39, 100, 232) 50%, rgb(30, 80, 199) 100%)'
+        background: 'linear-gradient(135deg, #081F30 0%, #084B73 50%, #081F30 100%)'
       }}
     >
       <div className="max-w-7xl mx-auto">

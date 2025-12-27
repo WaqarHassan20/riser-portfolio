@@ -14,7 +14,7 @@ export default function Testimonials() {
       image: 'JS',
       rating: 5,
       text: 'RiserX Consultancy transformed our business strategy. Their insights and expertise helped us achieve 150% growth in just one year. Highly recommended!',
-      color: 'from-blue-500 to-[rgb(24,69,179)]',
+      color: 'from-blue-500 to-[#084B73]',
     },
     {
       name: 'Maria Garcia',
@@ -88,7 +88,7 @@ export default function Testimonials() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-4">
             What Our Clients Say
           </h2>
           <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -146,7 +146,7 @@ export default function Testimonials() {
 
                     {/* Author */}
                     <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 bg-[rgb(24,69,179)] rounded-full flex items-center justify-center mb-4">
+                      <div className="w-16 h-16 bg-[#084B73] rounded-full flex items-center justify-center mb-4">
                         <span className="text-white font-bold text-xl">{testimonial.image}</span>
                       </div>
                       <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
@@ -166,7 +166,7 @@ export default function Testimonials() {
                 onClick={() => goToSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   index === currentIndex
-                    ? 'w-8 bg-[rgb(24,69,179)]'
+                    ? 'w-8 bg-[#084B73]'
                     : 'w-2 bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -178,25 +178,25 @@ export default function Testimonials() {
         {/* Stats Section */}
         <div className="mt-16 grid md:grid-cols-4 gap-8 text-center">
           <div className="p-6">
-            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
+            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
               98%
             </h3>
             <p className="text-gray-600">Client Satisfaction</p>
           </div>
           <div className="p-6">
-            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
+            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
               500+
             </h3>
             <p className="text-gray-600">Completed Projects</p>
           </div>
           <div className="p-6">
-            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
+            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
               300+
             </h3>
             <p className="text-gray-600">Happy Clients</p>
           </div>
           <div className="p-6">
-            <h3 className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">
+            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
               15+
             </h3>
             <p className="text-gray-600">Years Experience</p>

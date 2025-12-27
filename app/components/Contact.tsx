@@ -74,7 +74,7 @@ export default function Contact() {
     <section id="contact" className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-[rgb(24,69,179)]">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#084B73]">
             Get In Touch
           </h2>
         </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className={`w-full px-3 py-2 rounded-lg border ${
                       errors.firstName ? 'border-red-500' : 'border-gray-300'
-                    } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
+                    } focus:border-[#084B73] focus:ring-2 focus:ring-[#084B73]/20 outline-none transition-all`}
                     placeholder="John"
                   />
                   {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
@@ -139,7 +139,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className={`w-full px-3 py-2 rounded-lg border ${
                       errors.lastName ? 'border-red-500' : 'border-gray-300'
-                    } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
+                    } focus:border-[#084B73] focus:ring-2 focus:ring-[#084B73]/20 outline-none transition-all`}
                     placeholder="Doe"
                   />
                   {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
@@ -158,7 +158,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className={`w-full px-3 py-2 rounded-lg border ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
+                  } focus:border-[#084B73] focus:ring-2 focus:ring-[#084B73]/20 outline-none transition-all`}
                   placeholder="john@example.com"
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -176,7 +176,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className={`w-full px-3 py-2 rounded-lg border ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
+                  } focus:border-[#084B73] focus:ring-2 focus:ring-[#084B73]/20 outline-none transition-all`}
                   placeholder="+1 (555) 123-4567"
                 />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
@@ -193,7 +193,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className={`w-full px-3 py-2 rounded-lg border ${
                     errors.service ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all`}
+                  } focus:border-[#084B73] focus:ring-2 focus:ring-[#084B73]/20 outline-none transition-all`}
                 >
                   <option value="">Select a service</option>
                   <option value="uk">United Kingdom</option>
@@ -218,7 +218,7 @@ export default function Contact() {
                   rows={3}
                   className={`w-full px-3 py-2 rounded-lg border ${
                     errors.message ? 'border-red-500' : 'border-gray-300'
-                  } focus:border-[rgb(24,69,179)] focus:ring-2 focus:ring-[rgb(24,69,179)]/20 outline-none transition-all resize-none`}
+                  } focus:border-[#084B73] focus:ring-2 focus:ring-[#084B73]/20 outline-none transition-all resize-none`}
                   placeholder="Tell us about your project..."
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -227,7 +227,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-[rgb(24,69,179)] to-[rgb(20,58,150)] text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform ${
+                className={`w-full bg-gradient-to-r from-[#084B73] to-[#081F30] text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 transform ${
                   isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105'
                 }`}
               >

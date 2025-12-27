@@ -68,12 +68,12 @@ export default function Navbar() {
       className={`fixed z-50 transition-all duration-700 ease-in-out ${
         scrolled
           ? "top-0 left-0 right-0 w-full bg-white shadow-lg"
-          : "top-0 left-0 right-0 w-full bg-linear-to-r from-slate-800 via-blue-600 to-[rgb(20,58,150)]"
+          : "top-0 left-0 right-0 w-full bg-linear-to-r from-slate-800 via-blue-600 to-[#081F30]"
       }`}
       style={{
         background: scrolled
           ? "rgb(255, 255, 255)"
-          : "linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(39, 100, 232) 50%, rgb(30, 80, 199) 100%)",
+          : "linear-gradient(135deg, #081F30 0%, #084B73 50%, #081F30 100%)",
       }}
     >
       <div className="max-w-6xl mx-auto px-8 py-4">

@@ -41,10 +41,10 @@ export default function Offices() {
     <section className="py-16 px-4 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-5">
             Our Global Offices
           </h2>
-          <div className="w-24 h-1 bg-[rgb(24,69,179)] mx-auto mb-5"></div>
+          <div className="w-24 h-1 bg-[#084B73] mx-auto mb-5"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             With offices around the world, we&apos;re always close to you wherever you are
           </p>
@@ -53,7 +53,7 @@ export default function Offices() {
         {/* Headquarters */}
         <div className="mb-12">
           <div className="flex items-center gap-2 mb-6">
-            <Globe className="text-[rgb(24,69,179)]" size={24} strokeWidth={2.5} />
+            <Globe className="text-[#084B73]" size={24} strokeWidth={2.5} />
             <h3 className="text-2xl font-bold text-gray-900">Main Office</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -71,7 +71,7 @@ export default function Offices() {
               ></iframe>
             </div>
             {/* Office Details */}
-            <div className="bg-linear-to-br from-[rgb(24,69,179)] to-[rgb(20,58,150)] rounded-2xl p-8 text-white shadow-2xl">
+            <div className="bg-linear-to-br from-[#084B73] to-[#081F30] rounded-2xl p-8 text-white shadow-2xl">
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="text-6xl">{headquarters.flag}</div>
@@ -114,7 +114,7 @@ export default function Offices() {
         {/* Branch Offices */}
         <div>
           <div className="flex items-center gap-2 mb-6">
-            <Globe className="text-[rgb(24,69,179)]" size={24} strokeWidth={2.5} />
+            <Globe className="text-[#084B73]" size={24} strokeWidth={2.5} />
             <h3 className="text-2xl font-bold text-gray-900">Branch Offices</h3>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -132,14 +132,14 @@ export default function Offices() {
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 text-sm">
-                    <Phone size={16} className="text-[rgb(24,69,179)] shrink-0" strokeWidth={2} />
-                    <a href={`tel:${office.phone}`} className="text-gray-600 hover:text-[rgb(24,69,179)] transition-colors">
+                    <Phone size={16} className="text-[#084B73] shrink-0" strokeWidth={2} />
+                    <a href={`tel:${office.phone}`} className="text-gray-600 hover:text-[#084B73] transition-colors">
                       {office.phone}
                     </a>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
-                    <Mail size={16} className="text-[rgb(24,69,179)] shrink-0" strokeWidth={2} />
-                    <a href={`mailto:${office.email}`} className="text-gray-600 hover:text-[rgb(24,69,179)] transition-colors break-all">
+                    <Mail size={16} className="text-[#084B73] shrink-0" strokeWidth={2} />
+                    <a href={`mailto:${office.email}`} className="text-gray-600 hover:text-[#084B73] transition-colors break-all">
                       {office.email}
                     </a>
                   </div>

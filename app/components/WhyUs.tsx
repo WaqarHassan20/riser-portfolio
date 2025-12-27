@@ -47,7 +47,7 @@ export default function WhyUs() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mt-4 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mt-4 mb-6">
               What Makes Us Different
             </h2>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -73,26 +73,26 @@ export default function WhyUs() {
           {/* Right Content - Visual */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <div className="aspect-square bg-[rgb(24,69,179)] p-8 flex items-center justify-center">
+              <div className="aspect-square bg-[#084B73] p-8 flex items-center justify-center">
                 <div className="bg-white rounded-xl p-8 text-center w-full shadow-lg">
                   <h3 className="text-4xl font-bold text-gray-900 mb-4">15+</h3>
                   <p className="text-gray-600 mb-6">Years of Excellence</p>
                   
                   <div className="grid grid-cols-2 gap-4 text-left">
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-2xl font-bold text-[rgb(24,69,179)]">500+</p>
+                      <p className="text-2xl font-bold text-[#084B73]">500+</p>
                       <p className="text-sm text-gray-600">Projects</p>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-2xl font-bold text-[rgb(24,69,179)]">300+</p>
+                      <p className="text-2xl font-bold text-[#084B73]">300+</p>
                       <p className="text-sm text-gray-600">Clients</p>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-2xl font-bold text-[rgb(24,69,179)]">50+</p>
+                      <p className="text-2xl font-bold text-[#084B73]">50+</p>
                       <p className="text-sm text-gray-600">Experts</p>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-2xl font-bold text-[rgb(24,69,179)]">98%</p>
+                      <p className="text-2xl font-bold text-[#084B73]">98%</p>
                       <p className="text-sm text-gray-600">Success</p>
                     </div>
                   </div>

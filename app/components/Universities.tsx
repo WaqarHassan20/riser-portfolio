@@ -30,10 +30,10 @@ export default function Universities() {
     <section className="py-16 px-4 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-[rgb(24,69,179)] mb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-5">
             Partner Universities
           </h2>
-          <div className="w-24 h-1 bg-[rgb(24,69,179)] mx-auto mb-5"></div>
+          <div className="w-24 h-1 bg-[#084B73] mx-auto mb-5"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We have partnerships with world-renowned universities to help you achieve your educational goals
           </p>
@@ -50,11 +50,11 @@ export default function Universities() {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-4xl">{uni.flag}</div>
-                    <div className="w-12 h-12 bg-[rgb(24,69,179)] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-[#084B73] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                       <GraduationCap size={24} className="text-white" strokeWidth={2.5} />
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[rgb(24,69,179)] transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#084B73] transition-colors">
                     {uni.name}
                   </h3>
                   <p className="text-sm text-gray-600">{uni.country}</p>
@@ -71,19 +71,19 @@ export default function Universities() {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md">
-            <div className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">16+</div>
+            <div className="text-4xl font-bold text-[#084B73] mb-2">16+</div>
             <div className="text-gray-600 font-medium">Partner Universities</div>
           </div>
           <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md">
-            <div className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">4</div>
+            <div className="text-4xl font-bold text-[#084B73] mb-2">4</div>
             <div className="text-gray-600 font-medium">Countries</div>
           </div>
           <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md">
-            <div className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">95%</div>
+            <div className="text-4xl font-bold text-[#084B73] mb-2">95%</div>
             <div className="text-gray-600 font-medium">Acceptance Rate</div>
           </div>
           <div className="p-6 bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-md">
-            <div className="text-4xl font-bold text-[rgb(24,69,179)] mb-2">1000+</div>
+            <div className="text-4xl font-bold text-[#084B73] mb-2">1000+</div>
             <div className="text-gray-600 font-medium">Students Placed</div>
           </div>
         </div>
