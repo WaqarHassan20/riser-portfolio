@@ -1,34 +1,34 @@
 'use client';
 
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Globe } from 'lucide-react';
 
 export default function Universities() {
   // Flattened list of all universities with country info
   const allUniversities = [
-    { name: 'University of Oxford', country: 'UK', flag: '🇬🇧' },
-    { name: 'University of Cambridge', country: 'UK', flag: '🇬🇧' },
-    { name: 'Imperial College London', country: 'UK', flag: '🇬🇧' },
-    { name: 'University College London', country: 'UK', flag: '🇬🇧' },
-    { name: 'University of Melbourne', country: 'Australia', flag: '🇦🇺' },
-    { name: 'Australian National University', country: 'Australia', flag: '🇦🇺' },
-    { name: 'University of Sydney', country: 'Australia', flag: '🇦🇺' },
-    { name: 'University of Queensland', country: 'Australia', flag: '🇦🇺' },
-    { name: 'University of Toronto', country: 'Canada', flag: '🇨🇦' },
-    { name: 'McGill University', country: 'Canada', flag: '🇨🇦' },
-    { name: 'University of British Columbia', country: 'Canada', flag: '🇨🇦' },
-    { name: 'University of Alberta', country: 'Canada', flag: '🇨🇦' },
-    { name: 'MIT', country: 'USA', flag: '🇺🇸' },
-    { name: 'Stanford University', country: 'USA', flag: '🇺🇸' },
-    { name: 'Harvard University', country: 'USA', flag: '🇺🇸' },
-    { name: 'Princeton University', country: 'USA', flag: '🇺🇸' },
+    { name: 'University of Oxford', country: 'UK' },
+    { name: 'University of Cambridge', country: 'UK' },
+    { name: 'Imperial College London', country: 'UK' },
+    { name: 'University College London', country: 'UK' },
+    { name: 'University of Melbourne', country: 'Australia' },
+    { name: 'Australian National University', country: 'Australia' },
+    { name: 'University of Sydney', country: 'Australia' },
+    { name: 'University of Queensland', country: 'Australia' },
+    { name: 'University of Toronto', country: 'Canada' },
+    { name: 'McGill University', country: 'Canada' },
+    { name: 'University of British Columbia', country: 'Canada' },
+    { name: 'University of Alberta', country: 'Canada' },
+    { name: 'MIT', country: 'USA' },
+    { name: 'Stanford University', country: 'USA' },
+    { name: 'Harvard University', country: 'USA' },
+    { name: 'Princeton University', country: 'USA' },
   ];
 
   // Duplicate the array for seamless infinite scroll
   const duplicatedUniversities = [...allUniversities, ...allUniversities];
 
   return (
-    <section className="py-16 px-4 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="universities" className="py-16 px-20 md:px-44 bg-white overflow-hidden">
+      <div className="mx-auto">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-5">
             Partner Universities
@@ -49,7 +49,9 @@ export default function Universities() {
                   className="flex-shrink-0 mx-4 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 w-80 group"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="text-4xl">{uni.flag}</div>
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Globe size={24} className="text-[#084B73]" strokeWidth={2} />
+                    </div>
                     <div className="w-12 h-12 bg-[#084B73] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                       <GraduationCap size={24} className="text-white" strokeWidth={2.5} />
                     </div>

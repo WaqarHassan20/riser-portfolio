@@ -11,13 +11,13 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-16 px-4 bg-linear-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="py-16 px-20 md:px-44 bg-linear-to-b from-gray-50 to-white scroll-mt-16">
+      <div className="mx-auto">
         
         {/* Header */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-5">
-            About RiserX Consultancy
+            About The Risers Consultancy
           </h2>
           <div className="w-24 h-1 bg-[#084B73] mx-auto mb-5"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -59,7 +59,7 @@ export default function About() {
                 </h3>
               </div>
               <p className="text-gray-600 leading-relaxed mb-5 text-lg">
-                RiserX Consultancy is a premier immigration and visa consultancy firm dedicated to helping 
+                The Risers Consultancy is a premier immigration and visa consultancy firm dedicated to helping 
                 individuals and families achieve their dreams of living, working, or studying abroad. With 
                 over a decade of experience, we have successfully guided thousands of clients through complex 
                 immigration processes.
@@ -72,7 +72,7 @@ export default function About() {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 From initial consultation to post-arrival support, we are committed to making your relocation 
-                journey smooth, stress-free, and successful. Trust RiserX to turn your international aspirations 
+                journey smooth, stress-free, and successful. Trust The Risers Consultancy to turn your international aspirations 
                 into reality.
               </p>
             </div>

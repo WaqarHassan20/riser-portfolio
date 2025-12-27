@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RiserX Consultancy - Empowering Business Growth",
+  title: "The Risers Consultancy - Empowering Business Growth",
   description: "Leading consultancy firm delivering innovative solutions for business transformation and strategic growth.",
 };
 

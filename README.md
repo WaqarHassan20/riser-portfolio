@@ -1,4 +1,4 @@
-# RiserX Consultancy Website
+# The Risers Consultancy Website
 
 A modern, responsive consultancy website built with Next.js 16, featuring dynamic animations and interactive components.
 
@@ -54,4 +54,4 @@ Update the dummy content in the components with your actual:
 
 ---
 
-Built with ❤️ for RiserX Consultancy
+Built with ❤️ for The Risers Consultancy

@@ -1,15 +1,14 @@
 'use client';
 
-import { MapPin, Phone, Mail, Globe, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Clock, Building2 } from 'lucide-react';
 
 export default function Offices() {
   const headquarters = {
     city: 'Hafizabad',
     country: 'Pakistan',
-    flag: '🇵🇰',
     address: 'Sunny Garden Usama Block, Sargodha Road, Hafizabad, Pakistan',
     phone: '+92 54 1234 5678',
-    email: 'hafizabad@riserx.com',
+    email: 'hafizabad@therisers.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM PKT'
   };
 
@@ -17,29 +16,26 @@ export default function Offices() {
     {
       city: 'Faisalabad',
       country: 'Pakistan',
-      flag: '🇵🇰',
       phone: '+92 41 555-0198',
-      email: 'faisalabad@riserx.com',
+      email: 'faisalabad@therisers.com',
     },
     {
       city: 'Sargodha',
       country: 'Pakistan',
-      flag: '🇵🇰',
       phone: '+92 30 1234 5678',
-      email: 'sargodha@riserx.com',
+      email: 'sargodha@therisers.com',
     },
     {
       city: 'Jaranwala',
       country: 'Pakistan',
-      flag: '🇵🇰',
       phone: '+92 30 1234 5678',
-      email: 'jaranwala@riserx.com',
+      email: 'jaranwala@therisers.com',
     },
   ];
 
   return (
-    <section className="py-16 px-4 bg-linear-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="offices" className="py-16 px-20 md:px-44 bg-linear-to-b from-gray-50 to-white">
+      <div className="mx-auto">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-5">
             Our Global Offices
@@ -74,7 +70,9 @@ export default function Offices() {
             <div className="bg-linear-to-br from-[#084B73] to-[#081F30] rounded-2xl p-8 text-white shadow-2xl">
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-center gap-4">
-                <div className="text-6xl">{headquarters.flag}</div>
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                  <Building2 size={32} className="text-white" strokeWidth={2} />
+                </div>
                 <div>
                   <h4 className="text-3xl font-bold mb-1">{headquarters.city}</h4>
                   <p className="text-blue-100 text-lg">{headquarters.country}</p>
@@ -124,7 +122,9 @@ export default function Offices() {
                 className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-4xl">{office.flag}</div>
+                  <div className="w-12 h-12 bg-[#084B73]/10 rounded-full flex items-center justify-center">
+                    <MapPin size={24} className="text-[#084B73]" strokeWidth={2} />
+                  </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-900">{office.city}</h4>
                     <p className="text-sm text-gray-600">{office.country}</p>

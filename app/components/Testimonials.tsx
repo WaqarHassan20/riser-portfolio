@@ -1,206 +1,138 @@
 'use client';
 
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Star, Quote } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
   const testimonials = [
     {
-      name: 'John Smith',
-      role: 'CEO, TechCorp',
-      image: 'JS',
+      name: 'Sarah Ahmed',
+      role: 'Student at University of Oxford',
+      country: 'UK',
+      image: '/images/testimonials/student1.jpg',
       rating: 5,
-      text: 'RiserX Consultancy transformed our business strategy. Their insights and expertise helped us achieve 150% growth in just one year. Highly recommended!',
-      color: 'from-blue-500 to-[#084B73]',
+      text: 'The Risers Consultancy made my dream of studying at Oxford a reality. Their guidance throughout the application process was invaluable. They helped me craft a compelling personal statement and prepared me thoroughly for the interview.',
+      year: '2023',
     },
     {
-      name: 'Maria Garcia',
-      role: 'Founder, InnovateLab',
-      image: 'MG',
+      name: 'Muhammad Hassan',
+      role: 'Student at University of Toronto',
+      country: 'Canada',
+      image: '/images/testimonials/student2.jpg',
       rating: 5,
-      text: 'Working with RiserX was a game-changer. They provided actionable strategies that resulted in significant improvements in our operational efficiency.',
-      color: 'from-purple-500 to-purple-600',
+      text: 'I cannot thank The Risers Consultancy enough! They secured a $25,000 scholarship for me and handled everything from application to visa. Professional, caring, and incredibly knowledgeable.',
+      year: '2023',
     },
     {
-      name: 'Robert Johnson',
-      role: 'CFO, FinanceFirst',
-      image: 'RJ',
+      name: 'Emma Wilson',
+      role: 'Student at University of Melbourne',
+      country: 'Australia',
+      image: '/images/testimonials/student3.jpg',
       rating: 5,
-      text: 'The financial advisory services exceeded our expectations. Their team is professional, knowledgeable, and truly committed to client success.',
-      color: 'from-pink-500 to-pink-600',
+      text: 'Best decision I made was choosing The Risers Consultancy. They understood my goals perfectly and matched me with the ideal university. The visa process was smooth and stress-free thanks to their expert guidance.',
+      year: '2024',
     },
     {
-      name: 'Jennifer Lee',
-      role: 'Director, GrowthHub',
-      image: 'JL',
+      name: 'Ali Raza',
+      role: 'Student at MIT',
+      country: 'USA',
+      image: '/images/testimonials/student4.jpg',
       rating: 5,
-      text: 'Outstanding service! RiserX helped us navigate complex market challenges and emerge stronger. Their strategic guidance was invaluable.',
-      color: 'from-indigo-500 to-indigo-600',
+      text: 'Getting into MIT seemed impossible until I worked with The Risers Consultancy. Their team\'s expertise in US admissions and scholarship applications was phenomenal. They truly care about your success!',
+      year: '2024',
     },
     {
-      name: 'Alex Turner',
-      role: 'VP Operations, LogiTech',
-      image: 'AT',
+      name: 'Zara Khan',
+      role: 'Student at University of Manchester',
+      country: 'UK',
+      image: '/images/testimonials/student5.jpg',
       rating: 5,
-      text: 'The team at RiserX is exceptional. They delivered practical solutions that addressed our specific needs and drove measurable results.',
-      color: 'from-cyan-500 to-cyan-600',
+      text: 'The Risers Consultancy exceeded all my expectations. From university selection to accommodation arrangements, they took care of everything. I felt supported every step of the way.',
+      year: '2023',
     },
     {
-      name: 'Sophie Martin',
-      role: 'COO, RetailPro',
-      image: 'SM',
+      name: 'David Chen',
+      role: 'Student at Technical University Munich',
+      country: 'Germany',
+      image: '/images/testimonials/student6.jpg',
       rating: 5,
-      text: 'Impressive expertise and dedication. RiserX consultants went above and beyond to ensure our project success. A true partner in growth.',
-      color: 'from-teal-500 to-teal-600',
+      text: 'Outstanding service! The team helped me secure admission to TUM with a full scholarship. Their knowledge of German universities and visa requirements was impressive. Highly recommended!',
+      year: '2024',
     },
   ];
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  // Auto-play carousel
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [currentIndex, isAutoPlaying]);
-
   return (
-    <section id="testimonials" className="py-20 px-4 bg-white"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-4">
-            What Our Clients Say
+    <section id="testimonials" className="py-24 px-20 md:px-44 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-[#084B73]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-[#081F30]/5 rounded-full blur-3xl"></div>
+      
+      <div className="mx-auto relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#084B73] mb-4">
+            Success Stories
           </h2>
-          <p className="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
-            Don't just take our word for it - hear from the businesses we've helped transform.
+          <div className="w-24 h-1 bg-[#084B73] mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Hear from students who achieved their dreams of studying abroad with our guidance
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft size={24} className="text-black" strokeWidth={2} />
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight size={24} className="text-black" strokeWidth={2} />
-          </button>
-
-          {/* Testimonial Cards */}
-          <div className="overflow-hidden rounded-3xl">
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
             <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              key={index}
+              className="group relative"
             >
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="w-full flex-shrink-0 px-4"
-                >
-                  <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
-                    {/* Quote Icon */}
-                    <div className="absolute top-8 right-8 opacity-5">
-                      <Quote size={80} className="text-gray-900" />
-                    </div>
+              {/* Card */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+                {/* Quote Background */}
+                <div className="absolute top-4 right-4 opacity-5">
+                  <Quote size={80} className="text-[#084B73]" />
+                </div>
 
-                    {/* Rating */}
-                    <div className="flex justify-center gap-1 mb-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} size={24} className="text-yellow-400 fill-yellow-400" />
-                      ))}
-                    </div>
+                {/* Rating */}
+                <div className="flex gap-1 mb-6 relative z-10">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} size={20} className="text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
 
-                    {/* Testimonial Text */}
-                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8 text-center relative z-10 italic">
-                      "{testimonial.text}"
-                    </p>
+                {/* Testimonial Text */}
+                <p className="text-gray-700 text-base leading-relaxed mb-6 relative z-10 flex-grow">
+                  &ldquo;{testimonial.text}&rdquo;
+                </p>
 
-                    {/* Author */}
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 bg-[#084B73] rounded-full flex items-center justify-center mb-4">
-                        <span className="text-white font-bold text-xl">{testimonial.image}</span>
-                      </div>
-                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
-                      <p className="text-gray-600">{testimonial.role}</p>
+                {/* Divider */}
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-[#084B73]/20 to-transparent mb-6"></div>
+
+                {/* Author Info */}
+                <div className="flex items-center gap-4 relative z-10">
+                  {/* Avatar */}
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#084B73] to-[#081F30] flex items-center justify-center shrink-0 shadow-md">
+                    <span className="text-white font-bold text-lg">
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex-grow">
+                    <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                    <p className="text-sm text-[#084B73] font-medium">{testimonial.role}</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-xs text-gray-500">{testimonial.country}</span>
+                      <span className="text-xs text-gray-400">•</span>
+                      <span className="text-xs text-gray-500">Class of {testimonial.year}</span>
                     </div>
                   </div>
                 </div>
-              ))}
+
+                {/* Hover Effect Border */}
+                <div className="absolute inset-0 rounded-2xl border-2 border-[#084B73] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
             </div>
-          </div>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  index === currentIndex
-                    ? 'w-8 bg-[#084B73]'
-                    : 'w-2 bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-16 grid md:grid-cols-4 gap-8 text-center">
-          <div className="p-6">
-            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
-              98%
-            </h3>
-            <p className="text-gray-600">Client Satisfaction</p>
-          </div>
-          <div className="p-6">
-            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
-              500+
-            </h3>
-            <p className="text-gray-600">Completed Projects</p>
-          </div>
-          <div className="p-6">
-            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
-              300+
-            </h3>
-            <p className="text-gray-600">Happy Clients</p>
-          </div>
-          <div className="p-6">
-            <h3 className="text-4xl font-bold text-[#084B73] mb-2">
-              15+
-            </h3>
-            <p className="text-gray-600">Years Experience</p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

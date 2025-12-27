@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { MapPin, ChevronRight, ChevronLeft } from 'lucide-react';
+import { MapPin, ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Services() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,44 +19,80 @@ export default function Services() {
 
   const destinations = [
     {
-      flag: '🇬🇧',
       country: 'United Kingdom',
+      flagCode: 'GB',
       city: 'London',
       description: 'Discover rich history combined with modern business excellence. A global financial center with unparalleled educational and career opportunities.',
     },
     {
-      flag: '🇦🇺',
+      country: 'Cyprus',
+      flagCode: 'CY',
+      city: 'Nicosia & Limassol',
+      description: 'Beautiful Mediterranean island with excellent business opportunities. Low taxes, strategic location, and high quality of life.',
+    },
+    {
+      country: 'Lithuania',
+      flagCode: 'LT',
+      city: 'Vilnius',
+      description: 'A rapidly growing Baltic hub for innovation and startups. Modern infrastructure, EU membership, and competitive living costs.',
+    },
+    {
       country: 'Australia',
+      flagCode: 'AU',
       city: 'Sydney & Melbourne',
       description: 'Embrace work-life balance in stunning landscapes. Outstanding quality of life, thriving economy, and beautiful natural environments.',
     },
     {
-      flag: '🇨🇦',
-      country: 'Canada',
-      city: 'Toronto & Vancouver',
-      description: 'Build your future in a welcoming multicultural society. Excellent healthcare, education systems, and vast career opportunities.',
-    },
-    {
-      flag: '🇦🇪',
-      country: 'United Arab Emirates',
-      city: 'Dubai',
-      description: 'Experience luxury and innovation in the Middle East. Tax-free income, world-class infrastructure, and a thriving business environment.',
-    },
-    {
-      flag: '🇺🇸',
       country: 'United States',
+      flagCode: 'US',
       city: 'New York & California',
       description: 'Land of opportunity with diverse career paths. Access to cutting-edge industries, prestigious universities, and limitless growth potential.',
     },
     {
-      flag: '🇩🇪',
+      country: 'Georgia',
+      flagCode: 'GE',
+      city: 'Tbilisi',
+      description: 'Emerging European destination with favorable business climate. Low taxes, rich culture, and growing expat community.',
+    },
+    {
+      country: 'Romania',
+      flagCode: 'RO',
+      city: 'Bucharest & Cluj-Napoca',
+      description: 'Dynamic EU member with thriving tech scene. Affordable living costs, rich history, and excellent connectivity.',
+    },
+    {
+      country: 'Canada',
+      flagCode: 'CA',
+      city: 'Toronto & Vancouver',
+      description: 'Welcoming multicultural society with strong economy. Excellent healthcare, education system, and immigration-friendly policies.',
+    },
+    {
       country: 'Germany',
+      flagCode: 'DE',
       city: 'Berlin & Munich',
-      description: 'Europe\'s economic powerhouse with strong industrial heritage. Excellent work-life balance, social benefits, and central European location.',
+      description: 'Europe\'s economic powerhouse with innovation at its core. Strong industrial base, world-class education, and central European location.',
+    },
+    {
+      country: 'United Arab Emirates',
+      flagCode: 'AE',
+      city: 'Dubai & Abu Dhabi',
+      description: 'Modern business hub with tax-free income. Luxurious lifestyle, strategic location, and thriving international community.',
+    },
+    {
+      country: 'Singapore',
+      flagCode: 'SG',
+      city: 'Singapore',
+      description: 'Asia\'s premier business destination with world-class infrastructure. Safe, clean, and efficient with exceptional career opportunities.',
+    },
+    {
+      country: 'New Zealand',
+      flagCode: 'NZ',
+      city: 'Auckland & Wellington',
+      description: 'Stunning natural beauty with progressive society. High quality of life, strong work-life balance, and friendly immigration policies.',
     }
   ];
 
-  const cardsPerSlide = 3;
+  const cardsPerSlide = 4;
   const totalSlides = Math.ceil(destinations.length / cardsPerSlide);
 
   const nextSlide = () => {
@@ -72,8 +109,8 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-16 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-16 px-20 md:px-44 bg-gray-50">
+      <div className="mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#084B73] mb-4">
             Destinations We Offer
@@ -85,32 +122,46 @@ export default function Services() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative px-20">
+        <div className="relative px-20 pt-10 pb-20">
           <div className="transition-all duration-500 ease-in-out">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {getCurrentDestinations().map((destination, index) => (
                 <div
                   key={`${currentSlide}-${index}`}
-                  className="bg-white rounded-2xl overflow-visible shadow-lg hover:shadow-2xl transition-all duration-300 group animate-fadeIn"
+                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group animate-fadeIn h-95 flex flex-col"
                 >
-                  {/* Header with Flag */}
-                  <div className="bg-[#0E79BC] p-6 text-white rounded-t-2xl">
-                    <div className="text-6xl mb-3">{destination.flag}</div>
-                    <h3 className="text-2xl font-bold mb-1">{destination.country}</h3>
-                    <p className="text-white/90 text-sm font-medium flex items-center gap-2">
-                      <MapPin size={16} />
+                  {/* Header with Flag and Country Name */}
+                  <div className="bg-linear-to-br from-[#0E79BC] to-[#084B73] p-5 text-white">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-lg bg-white shrink-0">
+                        <Image
+                          src={`https://flagcdn.com/w160/${destination.flagCode.toLowerCase()}.png`}
+                          alt={`${destination.country} flag`}
+                          width={56}
+                          height={56}
+                          className="w-full h-full object-fit"
+                        />
+                      </div>
+                      <h3 className="text-xl font-bold">{destination.country}</h3>
+                    </div>
+                    <p className="text-white/90 text-sm font-medium flex items-center gap-2 ml-1">
+                      <MapPin size={15} className="shrink-0" />
                       {destination.city}
                     </p>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <p className="text-gray-600 leading-relaxed mb-6">
+                  <div className="p-5 flex-1 flex flex-col">
+                    <p className="text-gray-600 leading-relaxed text-sm flex-1 mt-3">
                       {destination.description}
                     </p>
 
-                    <button className="text-white font-medium text-[0.78rem] px-4 py-2 rounded-sm flex items-center gap-2 bg-[#0E79BC] transition-all cursor-pointer">
-                      view details
+                    <button 
+                      onClick={scrollToContact}
+                      className="text-white font-semibold text-xs px-4 py-3 rounded-md flex items-center gap-2 bg-[#0E79BC] transition-all cursor-pointer hover:bg-[#084B73] hover:shadow-md w-fit hover:gap-3"
+                    >
+                      Get Started
+                      <ArrowRight size={16} />
                     </button>
                   </div>
                 </div>

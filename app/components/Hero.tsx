@@ -1,15 +1,13 @@
 'use client';
 
-import { ArrowRight, Play } from 'lucide-react';
-import { useState } from 'react';
-
-// Icon wrapper for consistent black styling
-const IconWrapper = ({ children, ...props }: any) => {
-  return <span style={{ color: '#000000' }} {...props}>{children}</span>;
-};
+import { ArrowRight, Play, Pause, Maximize2 } from 'lucide-react';
+import { useState, useRef } from 'react';
 
 export default function Hero() {
-  const [showVideo, setShowVideo] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const mainVideoRef = useRef<HTMLVideoElement>(null);
+  const expandedVideoRef = useRef<HTMLVideoElement>(null);
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -21,15 +19,36 @@ export default function Hero() {
     }
   };
 
+  const togglePlay = () => {
+    const video = isExpanded ? expandedVideoRef.current : mainVideoRef.current;
+    if (video) {
+      if (isPlaying) {
+        video.pause();
+      } else {
+        video.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleExpandView = () => {
+    setIsExpanded(!isExpanded);
+    setIsPlaying(false);
+    // Pause both videos when toggling
+    if (mainVideoRef.current) mainVideoRef.current.pause();
+    if (expandedVideoRef.current) expandedVideoRef.current.pause();
+  };
+
   return (
-    <section 
-      id="home" 
-      className="pt-32 pb-24 px-4"
-      style={{
-        background: 'linear-gradient(135deg, #081F30 0%, #084B73 50%, #081F30 100%)'
-      }}
-    >
-      <div className="max-w-7xl mx-auto">
+    <>
+      <section 
+        id="home" 
+        className="pt-32 pb-24 px-20 md:px-44"
+        style={{
+          background: 'linear-gradient(135deg, #081F30 0%, #084B73 50%, #081F30 100%)'
+        }}
+      >
+      <div className="mx-auto my-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
@@ -41,7 +60,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg text-white/95 leading-relaxed drop-shadow-md">
-              RiserX Consultancy delivers innovative solutions that drive success. 
+              The Risers Consultancy delivers innovative solutions that drive success. 
               We transform challenges into opportunities with our expert consulting services.
             </p>
 
@@ -76,48 +95,126 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Content - Image/Video Placeholder */}
+          {/* Right Content - Video Player */}
           <div className="relative flex justify-center items-center">
-            <div className="relative rounded-lg overflow-hidden cursor-pointer group w-full max-w-lg transition-all duration-300 hover:scale-105" onClick={() => setShowVideo(true)}>
-              <div className="aspect-video bg-white/30 backdrop-blur-xl flex items-center justify-center" style={{
+            <div 
+              className="relative rounded-2xl overflow-hidden w-full shadow-2xl transition-all duration-300 hover:shadow-3xl group"
+            >
+              <div className="aspect-video bg-linear-to-br from-white/20 to-white/10 backdrop-blur-xl flex items-center justify-center relative" style={{
                 backdropFilter: 'blur(40px) saturate(180%)',
                 WebkitBackdropFilter: 'blur(40px) saturate(180%)',
               }}>
-                <div className="text-center text-white">
-                  <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-md group-hover:bg-white/30 transition-all border-2 border-white/30">
-                    <Play size={36} fill="white" className="text-white ml-1" />
-                  </div>
-                  <p className="text-lg font-bold drop-shadow-md">Watch Our Story</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Video Modal */}
-            {showVideo && (
-              <div 
-                className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-                onClick={() => setShowVideo(false)}
-              >
-                <div className="relative max-w-4xl w-full aspect-video bg-gray-900 rounded-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
-                  <button 
-                    onClick={() => setShowVideo(false)}
-                    className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white text-2xl z-10 backdrop-blur-sm transition-all"
-                  >
-                    ×
-                  </button>
-                  <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-blue-500 to-indigo-600">
+                {/* Video Element */}
+                <video 
+                  ref={mainVideoRef}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                >
+                  <source src="/video/video2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                
+                {/* Overlay for when video is not playing */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-sm">
                     <div className="text-center text-white">
-                      <Play size={64} fill="white" className="text-white mx-auto mb-4" />
-                      <p className="text-xl">Video Player Placeholder</p>
-                      <p className="text-sm opacity-75 mt-2">Your promotional video will play here</p>
+                      <p className="text-2xl font-bold drop-shadow-md mb-2">Watch Our Story</p>
+                      <p className="text-sm opacity-75">Discover how we help businesses succeed</p>
                     </div>
                   </div>
-                </div>
+                )}
+
+                {/* Play/Pause Button */}
+                <button
+                  onClick={togglePlay}
+                  className="absolute inset-0 flex items-center justify-center z-10 cursor-pointer group/play"
+                >
+                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md group-hover/play:bg-white/30 transition-all border-2 border-white/30 group-hover/play:scale-110">
+                    {isPlaying ? (
+                      <Pause size={40} fill="white" className="text-white" />
+                    ) : (
+                      <Play size={40} fill="white" className="text-white ml-1" />
+                    )}
+                  </div>
+                </button>
+
+                {/* Expand View Button */}
+                <button
+                  onClick={handleExpandView}
+                  className="absolute bottom-4 right-4 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/30 z-20"
+                  title="Expand View"
+                >
+                  <Maximize2 size={20} className="text-white" />
+                </button>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      {/* Expanded Video Overlay */}
+      {isExpanded && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-8 md:p-16"
+          onClick={handleExpandView}
+        >
+          <div 
+            className="relative w-full max-w-6xl aspect-video rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-full h-full bg-linear-to-br from-white/20 to-white/10 backdrop-blur-xl flex items-center justify-center relative" style={{
+              backdropFilter: 'blur(40px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+            }}>
+              {/* Video Element */}
+              <video 
+                ref={expandedVideoRef}
+                className="absolute inset-0 w-full h-full object-cover"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              >
+                <source src="/video/video2.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Overlay for when video is not playing */}
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-sm">
+                  <div className="text-center text-white">
+                    <p className="text-4xl font-bold drop-shadow-md mb-3">Watch Our Story</p>
+                    <p className="text-lg opacity-75">Discover how we help businesses succeed</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Play/Pause Button */}
+              <button
+                onClick={togglePlay}
+                className="absolute inset-0 flex items-center justify-center z-10 cursor-pointer group/play"
+              >
+                <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md group-hover/play:bg-white/30 transition-all border-2 border-white/30 group-hover/play:scale-110">
+                  {isPlaying ? (
+                    <Pause size={48} fill="white" className="text-white" />
+                  ) : (
+                    <Play size={48} fill="white" className="text-white ml-2" />
+                  )}
+                </div>
+              </button>
+
+              {/* Close Button */}
+              <button
+                onClick={handleExpandView}
+                className="absolute top-4 right-4 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center backdrop-blur-md transition-all border border-white/30 z-20 text-white text-2xl font-bold"
+                title="Close"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

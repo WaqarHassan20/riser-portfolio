@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,40 +19,53 @@ export default function Navbar() {
         "home",
         "about",
         "services",
+        "universities",
+        "offices",
         "why-us",
+        "process",
         "team",
         "testimonials",
         "contact",
       ];
-      const current = sections.find((section) => {
+      
+      // Find the section that's currently in view
+      let current = "home";
+      for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // Check if section is in viewport (with a larger threshold for better detection)
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            current = section;
+            break;
+          }
         }
-        return false;
-      });
-      if (current) setActiveSection(current);
+      }
+      setActiveSection(current);
     };
 
+    handleScroll(); // Call once on mount
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Why Us", href: "#why-us" },
-    { name: "Team", href: "#team" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", sectionId: "home" },
+    { name: "About", href: "#about", sectionId: "about" },
+    { name: "Destinations", href: "#services", sectionId: "services" },
+    { name: "Universities", href: "#universities", sectionId: "universities" },
+    { name: "Offices", href: "#offices", sectionId: "offices" },
+    { name: "Why Us", href: "#why-us", sectionId: "why-us" },
+    { name: "Process", href: "#process", sectionId: "process" },
+    { name: "Team", href: "#team", sectionId: "team" },
+    { name: "Testimonials", href: "#testimonials", sectionId: "testimonials" },
+    { name: "Contact", href: "#contact", sectionId: "contact" },
   ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80;
+      const offset = 70; // Reduced offset for proper alignment
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -76,31 +90,30 @@ export default function Navbar() {
           : "linear-gradient(135deg, #081F30 0%, #084B73 50%, #081F30 100%)",
       }}
     >
-      <div className="max-w-6xl mx-auto px-8 py-4">
-        <div className="flex justify-between items-center">
+      <div className="mx-auto px-20 md:px-44 py-3">
+        <div className="flex justify-center items-center relative py-3">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="flex items-center group cursor-pointer hover:opacity-80 transition-opacity duration-300"
+            className="absolute left-0 flex items-center group cursor-pointer hover:opacity-80 transition-opacity duration-300"
           >
             <Image 
-              src="/images/logo.jpeg" 
-              alt="RiserX Logo" 
+              src="/images/whitelogo.png" 
+              alt="The Risers Consultancy Logo" 
               width={140} 
               height={50}
               className="object-contain"
             />
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => {
-              const sectionId = link.href.replace("#", "");
-              const isActive = activeSection === sectionId;
+              const isActive = activeSection === link.sectionId;
               return (
                 <button
                   key={link.name}
-                  onClick={() => scrollToSection(sectionId)}
+                  onClick={() => scrollToSection(link.sectionId)}
                   className={`relative text-sm font-medium tracking-normal transition-all duration-300 cursor-pointer pb-1 ${
                     scrolled
                       ? isActive
@@ -118,11 +131,23 @@ export default function Navbar() {
                 </button>
               );
             })}
+            
+            {/* UAN Number Button */}
+            <Link
+              href="tel:+111-111-2022-111"
+              className={`absolute right-0 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                scrolled
+                  ? "bg-[#084B73] text-white hover:bg-[#084B73]/90"
+                  : "bg-white text-[#084B73] hover:bg-white/90"
+              }`}
+            >
+              <Phone size={16} className="inline-block mr-1" /> UAN: 111-111-2022-111
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden transition-colors p-2 cursor-pointer ${
+            className={`absolute right-0 md:hidden transition-colors p-2 cursor-pointer ${
               scrolled
                 ? "text-black hover:text-gray-900"
                 : "text-white hover:text-white/80"
@@ -142,12 +167,11 @@ export default function Navbar() {
         >
           <div className="pb-4 pt-2 space-y-1">
             {navLinks.map((link, index) => {
-              const sectionId = link.href.replace("#", "");
-              const isActive = activeSection === sectionId;
+              const isActive = activeSection === link.sectionId;
               return (
                 <button
                   key={link.name}
-                  onClick={() => scrollToSection(sectionId)}
+                  onClick={() => scrollToSection(link.sectionId)}
                   className={`block w-full text-left py-3 px-4 transition-all duration-300 font-semibold rounded-lg cursor-pointer ${
                     scrolled
                       ? isActive
