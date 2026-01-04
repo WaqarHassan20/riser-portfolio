@@ -116,14 +116,14 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex items-center gap-3 xl:gap-6">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 mx-auto">
             {navLinks.map((link) => {
               const isActive = activeSection === link.sectionId;
               return (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.sectionId)}
-                  className={`relative text-sm font-medium tracking-normal transition-all duration-300 cursor-pointer pb-1 ${scrolled
+                  className={`relative text-xs xl:text-sm font-medium tracking-normal transition-all duration-300 cursor-pointer pb-1 px-2 xl:px-3 ${scrolled
                     ? isActive
                       ? "text-black"
                       : "text-gray-900 hover:text-black"
@@ -166,7 +166,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden overflow-y-auto transition-all duration-300 ease-in-out ${isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
             }`}
         >
           <div className="pb-4 pt-2 space-y-1">
@@ -184,7 +184,7 @@ export default function Navbar() {
                       ? "text-white bg-white/20"
                       : "text-white/90 hover:text-white hover:bg-white/10"
                     }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  style={{ animationDelay: `${index * 50}ms`, marginTop: index === 0 ? '20px' : '0' }}
                 >
                   {link.name}
                 </button>

@@ -113,12 +113,12 @@ export default function Hero() {
     <>
       <section
         id="home"
-        className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-44"
+        className="pt-24 md:pt-28 pb-12 md:pb-16 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-44"
         style={{
-          background: 'linear-gradient(135deg, #081F30 0%, #084B73 50%, #081F30 100%)'
+          background: 'linear-gradient(135deg, #0A2538 0%, #0A5A8F 50%, #0A2538 100%)'
         }}
       >
-        <div className="mx-auto my-8 md:my-20">
+        <div className="mx-auto my-6 md:my-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Content */}
             <motion.div
@@ -209,16 +209,6 @@ export default function Hero() {
                     Your browser does not support the video tag.
                   </video>
 
-                  {/* Overlay for when video is not playing */}
-                  {!isPlaying && (
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-sm">
-                      <div className="text-center text-white">
-                        <p className="text-2xl font-bold drop-shadow-md mb-2">Watch Our Story</p>
-                        <p className="text-sm opacity-75">Discover how we help businesses succeed</p>
-                      </div>
-                    </div>
-                  )}
-
                   {/* Play/Pause Button */}
                   <button
                     onClick={togglePlay}
@@ -272,16 +262,6 @@ export default function Hero() {
                 <source src="/video/video2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-
-              {/* Overlay for when video is not playing */}
-              {!isPlaying && (
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-sm">
-                  <div className="text-center text-white">
-                    <p className="text-4xl font-bold drop-shadow-md mb-3">Watch Our Story</p>
-                    <p className="text-lg opacity-75">Discover how we help businesses succeed</p>
-                  </div>
-                </div>
-              )}
 
               {/* Play/Pause Button */}
               <button

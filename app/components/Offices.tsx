@@ -1,32 +1,32 @@
-'use client';
+"use client";
 
-import { MapPin, Phone, Mail, Globe, Clock, Building2 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { MapPin, Phone, Mail, Globe, Clock, Building2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } },
 };
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: EASE_OUT } }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: EASE_OUT } },
 };
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: EASE_OUT } }
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: EASE_OUT } },
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
 };
 
 const cardVariant = {
@@ -35,43 +35,40 @@ const cardVariant = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.4, ease: EASE_OUT }
-  }
+    transition: { duration: 0.4, ease: EASE_OUT },
+  },
 };
 
 export default function Offices() {
   const headquarters = {
-    city: 'Hafizabad',
-    country: 'Pakistan',
-    address: 'Sunny Garden Usama Block, Sargodha Road, Hafizabad, Pakistan',
-    phone: '+92 54 1234 5678',
-    email: 'hafizabad@therisers.com',
-    hours: 'Mon-Fri: 9:00 AM - 6:00 PM PKT'
+    city: "Hafizabad",
+    country: "Pakistan",
+    address: "Sunny Garden Usama Block, Sargodha Road, Hafizabad, Pakistan",
+    phone: "+92 54 1234 5678",
+    email: "hafizabad@therisers.com",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM PKT",
   };
 
   const branchOffices = [
     {
-      city: 'Faisalabad',
-      country: 'Pakistan',
-      phone: '+92 41 555-0198',
-      email: 'faisalabad@therisers.com',
+      city: "Faisalabad",
+      country: "Pakistan",
+      phone: "+92 41 555-0198",
+      email: "faisalabad@therisers.com",
     },
     {
-      city: 'Sargodha',
-      country: 'Pakistan',
-      phone: '+92 30 1234 5678',
-      email: 'sargodha@therisers.com',
-    },
-    {
-      city: 'Jaranwala',
-      country: 'Pakistan',
-      phone: '+92 30 1234 5678',
-      email: 'jaranwala@therisers.com',
+      city: "Sargodha",
+      country: "Pakistan",
+      phone: "+92 30 1234 5678",
+      email: "sargodha@therisers.com",
     },
   ];
 
   return (
-    <section id="offices" className="py-12 md:py-16 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-44 bg-linear-to-b from-gray-50 to-white">
+    <section
+      id="offices"
+      className="py-12 md:py-16 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-44 bg-linear-to-b from-gray-50 to-white"
+    >
       <div className="mx-auto">
         <motion.div
           className="text-center mb-10 md:mb-14"
@@ -85,26 +82,27 @@ export default function Offices() {
           </h2>
           <div className="w-20 md:w-24 h-1 bg-[#084B73] mx-auto mb-4 md:mb-5"></div>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            With offices around the world, we&apos;re always close to you wherever you are
+            With offices around the world, we&apos;re always close to you
+            wherever you are
           </p>
         </motion.div>
 
         {/* Headquarters */}
-        <div className="mb-12">
+        <div className="mb-16">
           <motion.div
-            className="flex items-center gap-2 mb-6"
+            className="flex items-center gap-2 mb-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
           >
-            <Globe className="text-[#084B73]" size={24} strokeWidth={2.5} />
-            <h3 className="text-2xl font-bold text-gray-900">Main Office</h3>
+            <Globe className="text-[#084B73]" size={28} strokeWidth={2.5} />
+            <h3 className="text-3xl font-bold text-gray-900">Main Office</h3>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
-            {/* Map */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
+            {/* Map - Takes 3 columns */}
             <motion.div
-              className="rounded-xl md:rounded-2xl overflow-hidden shadow-lg h-62.5 sm:h-75 md:h-100"
+              className="lg:col-span-3 rounded-2xl overflow-hidden shadow-xl h-72 sm:h-80 md:h-96 lg:h-full min-h-96"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -121,47 +119,81 @@ export default function Offices() {
                 title="Headquarters Location Map"
               ></iframe>
             </motion.div>
-            {/* Office Details */}
+            {/* Office Details - Takes 2 columns */}
             <motion.div
-              className="bg-linear-to-br from-[#084B73] to-[#081F30] rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 text-white shadow-2xl"
+              className="lg:col-span-2 bg-linear-to-br from-[#084B73] to-[#081F30] rounded-2xl p-6 md:p-8 text-white shadow-2xl"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInRight}
             >
               <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center shrink-0">
-                  <Building2 size={24} className="md:w-8 md:h-8 text-white" strokeWidth={2} />
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center shrink-0">
+                  <Building2
+                    size={28}
+                    className="md:w-8 md:h-8 text-white"
+                    strokeWidth={2}
+                  />
                 </div>
                 <div>
-                  <h4 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">{headquarters.city}</h4>
-                  <p className="text-blue-100 text-sm md:text-base">{headquarters.country}</p>
+                  <h4 className="text-2xl md:text-3xl font-bold mb-1">
+                    {headquarters.city}
+                  </h4>
+                  <p className="text-blue-100 text-sm md:text-base">
+                    {headquarters.country}
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-4 md:space-y-5">
                 <div className="flex items-start gap-3">
-                  <MapPin size={18} className="sm:w-5 sm:h-5 shrink-0 mt-0.5" strokeWidth={2} />
-                  <p className="text-xs sm:text-sm md:text-base text-blue-50 leading-relaxed">{headquarters.address}</p>
+                  <MapPin
+                    size={18}
+                    className="sm:w-5 sm:h-5 mt-0.5 shrink-0"
+                    strokeWidth={2}
+                  />
+                  <p className="text-xs sm:text-sm md:text-base text-blue-50 leading-relaxed">
+                    {headquarters.address}
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone size={18} className="sm:w-5 sm:h-5 shrink-0 mt-0.5" strokeWidth={2} />
-                  <a href={`tel:${headquarters.phone}`} className="text-xs sm:text-sm md:text-base text-blue-50 hover:text-white transition-colors">
+                  <Phone
+                    size={18}
+                    className="sm:w-5 sm:h-5 mt-0.5 shrink-0"
+                    strokeWidth={2}
+                  />
+                  <a
+                    href={`tel:${headquarters.phone}`}
+                    className="text-xs sm:text-sm md:text-base text-blue-50 hover:text-white transition-colors break-all"
+                  >
                     {headquarters.phone}
                   </a>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail size={18} className="sm:w-5 sm:h-5 shrink-0 mt-0.5" strokeWidth={2} />
-                  <a href={`mailto:${headquarters.email}`} className="text-xs sm:text-sm md:text-base text-blue-50 hover:text-white transition-colors break-all">
+                  <Mail
+                    size={18}
+                    className="sm:w-5 sm:h-5 shrink-0 mt-0.5"
+                    strokeWidth={2}
+                  />
+                  <a
+                    href={`mailto:${headquarters.email}`}
+                    className="text-xs sm:text-sm md:text-base text-blue-50 hover:text-white transition-colors break-all"
+                  >
                     {headquarters.email}
                   </a>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock size={18} className="sm:w-5 sm:h-5 shrink-0 mt-0.5" strokeWidth={2} />
-                  <p className="text-xs sm:text-sm md:text-base text-blue-50">{headquarters.hours}</p>
+                  <Clock
+                    size={18}
+                    className="sm:w-5 sm:h-5 shrink-0 mt-0.5"
+                    strokeWidth={2}
+                  />
+                  <p className="text-xs sm:text-sm md:text-base text-blue-50">
+                    {headquarters.hours}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -171,17 +203,17 @@ export default function Offices() {
         {/* Branch Offices */}
         <div>
           <motion.div
-            className="flex items-center gap-2 mb-6"
+            className="flex items-center gap-2 mb-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeInUp}
           >
-            <Globe className="text-[#084B73]" size={24} strokeWidth={2.5} />
-            <h3 className="text-2xl font-bold text-gray-900">Branch Offices</h3>
+            <Globe className="text-[#084B73]" size={28} strokeWidth={2.5} />
+            <h3 className="text-3xl font-bold text-gray-900">Branch Offices</h3>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 cursor-pointer"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -190,31 +222,72 @@ export default function Offices() {
             {branchOffices.map((office, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200"
+                className="group relative rounded-2xl overflow-hidden transition-all duration-300"
                 variants={cardVariant}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                whileHover={{ y: -12, transition: { duration: 0.3, ease: EASE_OUT } }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-[#084B73]/10 rounded-full flex items-center justify-center">
-                    <MapPin size={24} className="text-[#084B73]" strokeWidth={2} />
+                {/* Background gradient - always visible */}
+                <div className="absolute inset-0 bg-linear-to-br from-blue-50 via-white to-blue-50"></div>
+                
+                {/* Card content */}
+                <div className="relative p-6 md:p-7 border-2 border-[#084B73]/30 rounded-2xl backdrop-blur-sm bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  {/* Top accent line - always visible */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-[#084B73] via-[#0A5A8F] to-transparent rounded-t-2xl"></div>
+
+                  {/* Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-full bg-linear-to-br from-[#084B73]/25 to-[#0A5A8F]/25 flex items-center justify-center shrink-0">
+                      <MapPin
+                        size={28}
+                        className="text-[#084B73]"
+                        strokeWidth={2.5}
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-2xl font-bold text-[#084B73]">
+                        {office.city}
+                      </h4>
+                      <p className="text-base text-gray-700 font-semibold">
+                        {office.country}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900">{office.city}</h4>
-                    <p className="text-sm text-gray-600">{office.country}</p>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Phone size={16} className="text-[#084B73] shrink-0" strokeWidth={2} />
-                    <a href={`tel:${office.phone}`} className="text-gray-600 hover:text-[#084B73] transition-colors">
-                      {office.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Mail size={16} className="text-[#084B73] shrink-0" strokeWidth={2} />
-                    <a href={`mailto:${office.email}`} className="text-gray-600 hover:text-[#084B73] transition-colors break-all">
-                      {office.email}
-                    </a>
+
+                  {/* Divider */}
+                  <div className="h-px bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 mb-5"></div>
+
+                  {/* Contact Info */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-linear-to-br from-[#084B73]/15 to-[#0A5A8F]/15 flex items-center justify-center">
+                        <Phone
+                          size={18}
+                          className="text-[#084B73]"
+                          strokeWidth={2.5}
+                        />
+                      </div>
+                      <a
+                        href={`tel:${office.phone}`}
+                        className="text-base font-bold text-gray-800 hover:text-[#084B73] transition-colors"
+                      >
+                        {office.phone}
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-linear-to-br from-[#084B73]/15 to-[#0A5A8F]/15 flex items-center justify-center">
+                        <Mail
+                          size={18}
+                          className="text-[#084B73]"
+                          strokeWidth={2.5}
+                        />
+                      </div>
+                      <a
+                        href={`mailto:${office.email}`}
+                        className="text-base font-bold text-gray-800 hover:text-[#084B73] transition-colors break-all"
+                      >
+                        {office.email}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
