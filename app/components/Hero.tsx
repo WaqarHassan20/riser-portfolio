@@ -132,9 +132,9 @@ export default function Hero() {
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight drop-shadow-lg"
                 variants={fadeInRight}
               >
-                Empowering Your{' '}
+                Embrace New Opportunities {' '}
                 <span className="text-white">
-                  Business Growth
+                  
                 </span>
               </motion.h1>
 
@@ -168,15 +168,15 @@ export default function Hero() {
                 variants={staggerContainer}
               >
                 <motion.div variants={fadeInUp}>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md">500+</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md">250+</h3>
                   <p className="text-xs sm:text-sm text-white/90 mt-1">Projects Completed</p>
                 </motion.div>
                 <motion.div variants={fadeInUp}>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md">98%</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md">99%</h3>
                   <p className="text-xs sm:text-sm text-white/90 mt-1">Client Satisfaction</p>
                 </motion.div>
                 <motion.div variants={fadeInUp}>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md">50+</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white drop-shadow-md">20+</h3>
                   <p className="text-xs sm:text-sm text-white/90 mt-1">Expert Consultants</p>
                 </motion.div>
               </motion.div>

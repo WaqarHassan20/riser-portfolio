@@ -30,12 +30,12 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: "#", color: "hover:bg-blue-600" },
-    { icon: <Twitter size={20} />, href: "#", color: "hover:bg-sky-500" },
-    { icon: <Linkedin size={20} />, href: "#", color: "hover:bg-blue-700" },
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=100088528545444", color: "hover:bg-blue-600" },
+    { icon: <Twitter size={20} />, href: "https://x.com/TheRisers786", color: "hover:bg-sky-500" },
+    { icon: <Linkedin size={20} />, href: " tiktok.com/@therisersconsultancy%3F_r%3D1%26_t%3DZS-92JmwPPTdpK", color: "hover:bg-blue-700" },
     {
       icon: <Instagram size={20} />,
-      href: "#",
+      href: "https://www.instagram.com/therisersconsultancypvtltd/",
       color: "hover:bg-linear-to-tr hover:from-purple-600 hover:to-pink-600",
     },
   ];
@@ -67,11 +67,11 @@ export default function Footer() {
                 <h3 className="text-2xl font-bold text-white leading-tight">
                   The Risers
                 </h3>
-                <p className="text-sm text-blue-200 font-medium">Consultancy</p>
+                <p className="text-2xl text-blue-200 font-medium">Consultancy</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed text-sm">
-              Add your custom slogan here
+              At The Risers Consultancy, we specialize in turning your dreams of studying abroad into reality.
             </p>
           </div>
 
@@ -119,7 +119,7 @@ export default function Footer() {
                     href="tel:+15551234567"
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
-                    +1 (555) 123-4567
+                    +92 335 000 8032
                   </a>
                 </div>
               </li>

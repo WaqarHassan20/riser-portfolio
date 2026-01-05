@@ -117,7 +117,7 @@ export default function Process() {
           <div
             className="flex whitespace-nowrap shrink-0 text-white"
             style={{
-              animation: 'marquee 200s linear infinite',
+              animation: 'marquee 280s linear infinite',
             }}
           >
             {Array(100).fill(brandText).map((text, i) => (

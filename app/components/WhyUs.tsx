@@ -127,7 +127,7 @@ export default function WhyUs() {
                 <span className="text-sm font-semibold text-white/90">Compliance-first review</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-5">98% Visa Success Rate</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-5">99% Visa Success Rate</h3>
               <p className="text-white/80 text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
                 We don&apos;t gamble with your future. Our dedicated compliance team reviews every financial document,
                 ensuring your case is ironclad before it reaches the embassy.

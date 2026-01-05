@@ -34,7 +34,7 @@ export default function About() {
     { title: 'Visa Consultation', icon: MapPin },
     { title: 'Document Processing', icon: Shield },
     { title: 'Expert Team', icon: Users },
-    { title: '98% Approval Rate', icon: Target },
+    { title: '99% Approval Rate', icon: Target },
   ];
 
   return (
@@ -105,7 +105,7 @@ export default function About() {
               >
                 <div className="w-1.5 md:w-2 h-10 md:h-12 bg-[#084B73] rounded-full"></div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
-                  Leading Immigration Consultancy Since 2014
+                  Leading Immigration Consultancy Since 2021
                 </h3>
               </motion.div>
               <motion.p

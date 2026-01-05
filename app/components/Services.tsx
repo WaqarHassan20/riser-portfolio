@@ -46,6 +46,12 @@ export default function Services() {
       city: 'Vilnius',
       description: 'A rapidly growing Baltic hub for innovation and startups. Modern infrastructure, EU membership, and competitive living costs.',
     },
+        {
+      country: 'Croatia',
+      flagCode: 'HR',
+      city: 'Zagreb & Dubrovnik',
+      description: 'Stunning Adriatic destination with emerging business prospects. Rich culture, beautiful coastlines, and access to EU markets.',
+    },
     {
       country: 'Australia',
       flagCode: 'AU',
@@ -81,12 +87,6 @@ export default function Services() {
       flagCode: 'DE',
       city: 'Berlin & Munich',
       description: 'Europe\'s economic powerhouse with innovation at its core. Strong industrial base, world-class education, and central European location.',
-    },
-    {
-      country: 'United Arab Emirates',
-      flagCode: 'AE',
-      city: 'Dubai & Abu Dhabi',
-      description: 'Modern business hub with tax-free income. Luxurious lifestyle, strategic location, and thriving international community.',
     },
     {
       country: 'Singapore',

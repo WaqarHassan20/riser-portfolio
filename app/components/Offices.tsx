@@ -1,6 +1,14 @@
 "use client";
 
-import { MapPin, Phone, Mail, Globe, Clock, Building2 } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Clock,
+  Building2,
+  Building,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
@@ -44,8 +52,8 @@ export default function Offices() {
     city: "Hafizabad",
     country: "Pakistan",
     address: "Sunny Garden Usama Block, Sargodha Road, Hafizabad, Pakistan",
-    phone: "+92 54 1234 5678",
-    email: "hafizabad@therisers.com",
+    phone: "+92 335 0008032",
+    email: "hafizabad@therisers.com", // To be change later on when purchased it
     hours: "Mon-Fri: 9:00 AM - 6:00 PM PKT",
   };
 
@@ -53,14 +61,18 @@ export default function Offices() {
     {
       city: "Faisalabad",
       country: "Pakistan",
-      phone: "+92 41 555-0198",
-      email: "faisalabad@therisers.com",
+      address:
+        "BC Tower 1st Floor Shop 3,4 Jinnah Colony Road near GCU main campus, Faisalabad, Pakistan",
+      phone: "+92 311 4399995",
+      email: "faisalabad@therisers.com", // To be change later on when purchased it
     },
     {
       city: "Sargodha",
       country: "Pakistan",
-      phone: "+92 30 1234 5678",
-      email: "sargodha@therisers.com",
+      address:
+        "1st floor Ehsan Cash and Carry near Zafar Ullah Chowk Sargodha, Pakistan",
+      phone: "+92 342 4789153",
+      email: "sargodha@therisers.com", // To be change later on when purchased it
     },
   ];
 
@@ -78,7 +90,7 @@ export default function Offices() {
           variants={fadeInUp}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#084B73] mb-4 md:mb-5">
-            Our Global Offices
+            Our Offices
           </h2>
           <div className="w-20 md:w-24 h-1 bg-[#084B73] mx-auto mb-4 md:mb-5"></div>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -224,11 +236,14 @@ export default function Offices() {
                 key={index}
                 className="group relative rounded-2xl overflow-hidden transition-all duration-300"
                 variants={cardVariant}
-                whileHover={{ y: -12, transition: { duration: 0.3, ease: EASE_OUT } }}
+                whileHover={{
+                  y: -12,
+                  transition: { duration: 0.3, ease: EASE_OUT },
+                }}
               >
                 {/* Background gradient - always visible */}
                 <div className="absolute inset-0 bg-linear-to-br from-blue-50 via-white to-blue-50"></div>
-                
+
                 {/* Card content */}
                 <div className="relative p-6 md:p-7 border-2 border-[#084B73]/30 rounded-2xl backdrop-blur-sm bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300">
                   {/* Top accent line - always visible */}
@@ -237,7 +252,7 @@ export default function Offices() {
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-14 h-14 rounded-full bg-linear-to-br from-[#084B73]/25 to-[#0A5A8F]/25 flex items-center justify-center shrink-0">
-                      <MapPin
+                      <Building2
                         size={28}
                         className="text-[#084B73]"
                         strokeWidth={2.5}
@@ -257,14 +272,23 @@ export default function Offices() {
                   <div className="h-px bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 mb-5"></div>
 
                   {/* Contact Info */}
-                  <div className="space-y-4">
+                  <div className="space-y-1">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-linear-to-br from-[#084B73]/15 to-[#0A5A8F]/15 flex items-center justify-center">
-                        <Phone
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                        <MapPin
                           size={18}
-                          className="text-[#084B73]"
-                          strokeWidth={2.5}
+                          className="sm:w-5 sm:h-5 mt-0.5 shrink-0"
+                          strokeWidth={2}
                         />
+                      </div>
+                      <p className="text-base font-bold text-gray-800 hover:text-[#084B73] transition-colors">
+                        {office.address}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                        <Phone size={18} />
                       </div>
                       <a
                         href={`tel:${office.phone}`}
@@ -274,7 +298,7 @@ export default function Offices() {
                       </a>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-linear-to-br from-[#084B73]/15 to-[#0A5A8F]/15 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center">
                         <Mail
                           size={18}
                           className="text-[#084B73]"
